@@ -1,0 +1,133 @@
+/* Pixel Art & Scrapbook Custom Aesthetics */
+
+@keyframes floatPixel {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+@keyframes pixelShine {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.floating-pixel {
+  animation: floatPixel 4s ease-in-out infinite;
+}
+
+.pixel-shine {
+  animation: pixelShine 2s steps(2, start) infinite;
+}
+
+/* NES / Pixel Art Box Shadow Borders */
+.pixel-box {
+  background: #fffdf7;
+  box-shadow: 
+    0 -4px 0 0 #4a2c2a,
+    0 4px 0 0 #4a2c2a,
+    -4px 0 0 0 #4a2c2a,
+    4px 0 0 0 #4a2c2a,
+    0 -8px 0 0 #fffdf7,
+    0 8px 0 0 #fffdf7,
+    -8px 0 0 0 #fffdf7,
+    8px 0 0 0 #fffdf7,
+    0 0 0 4px #2b1716,
+    0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.pixel-btn {
+  position: relative;
+  border: none;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s;
+  box-shadow: 
+    inset -4px -4px 0px 0px #8b3a4a,
+    inset 4px 4px 0px 0px #ffa8ba,
+    0 0 0 2px #331018;
+}
+
+.pixel-btn:active {
+  transform: translateY(2px);
+  box-shadow: 
+    inset -2px -2px 0px 0px #8b3a4a,
+    inset 2px 2px 0px 0px #ffa8ba,
+    0 0 0 2px #331018;
+}
+
+/* Scrapbook Washi Tape Effect */
+.washi-tape-pink {
+  background: rgba(255, 182, 193, 0.75);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  border-left: 2px dashed rgba(255, 255, 255, 0.6);
+  border-right: 2px dashed rgba(255, 255, 255, 0.6);
+}
+
+.washi-tape-yellow {
+  background: rgba(255, 223, 140, 0.75);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  border-left: 2px dashed rgba(255, 255, 255, 0.6);
+  border-right: 2px dashed rgba(255, 255, 255, 0.6);
+}
+
+/* Polaroid Paper Texture */
+.polaroid-frame {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.polaroid-frame:hover {
+  transform: scale(1.03) rotate(0deg) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
+  z-index: 10;
+}
+
+/* Pixel Font Helper Classes */
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+}
+
+.font-pixel-retro {
+  font-family: 'VT323', monospace;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+/* Pixel Checkbox */
+.pixel-checkbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #5a3825;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+.pixel-checkbox:checked {
+  background: #e63946;
+}
+
+.pixel-checkbox:checked::after {
+  content: '♥';
+  color: white;
+  position: absolute;
+  font-size: 14px;
+  top: -2px;
+  left: 2px;
+}
