@@ -4,11 +4,12 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  
   plugins: [
     react(),
     tailwindcss()
   ],
-  base: './', // Essential for GitHub Pages deployment
+  base: '/flowaauull/', // Essential for GitHub Pages deployment
   build: {
     outDir: 'dist',
     sourcemap: false
