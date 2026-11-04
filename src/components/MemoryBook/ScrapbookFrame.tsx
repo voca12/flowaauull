@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PhotoMemory } from '../../types';
 import { EditableText } from './EditableText';
-import { Trash2, Heart, Sparkles, Flower2, Bookmark } from 'lucide-react';
+import { Trash2, Heart, Sparkles, Flower2, Bookmark, ImageOff } from 'lucide-react';
 import { audioEngine } from '../../utils/audioSynth';
+import { resolvePhotoUrl } from '../../utils/indexedDB';
 
 interface ScrapbookFrameProps {
   photo: PhotoMemory;
@@ -19,6 +20,9 @@ export const ScrapbookFrame: React.FC<ScrapbookFrameProps> = ({
   onUpdateDate,
   onDelete
 }) => {
+  const [imgError, setImgError] = useState(false);
+  const resolvedSrc = resolvePhotoUrl(photo.dataUrl);
+
   const rotationStyle = {
     transform: `rotate(${photo.rotation ?? 0}deg)`
   };
@@ -85,12 +89,22 @@ export const ScrapbookFrame: React.FC<ScrapbookFrameProps> = ({
 
       {/* Photograph Container */}
       <div className="relative aspect-square w-full overflow-hidden bg-[#E8DEFA] rounded-xs border border-[#A78BCE]/40">
-        <img
-          src={photo.dataUrl}
-          alt={photo.caption}
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+        {!imgError && resolvedSrc ? (
+          <img
+            src={resolvedSrc}
+            alt={photo.caption}
+            className="w-full h-full object-cover"
+            loading="lazy"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-[#A78BCE]">
+            <ImageOff size={32} className="opacity-50" />
+            <span className="font-mono text-[10px] text-center px-2 opacity-60">
+              Replace with your photo ✦
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Scrapbook Details: Date & Handwritten Caption (Dark Navy Text for Maximum Readability) */}

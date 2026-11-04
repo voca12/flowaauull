@@ -57,7 +57,7 @@ export const BookCover: React.FC<BookCoverProps> = ({
           {/* Top Stamp / Year */}
           <div className="text-center pl-6 pt-3">
             <span className="inline-block px-3 py-1 bg-[#30234F]/80 text-[#D8C8F0] border border-[#59418C] font-pixel text-[9px] tracking-widest uppercase rounded">
-              A Special Birthday Edition
+              Happy Birthday Ka Auull 
             </span>
           </div>
 
@@ -72,7 +72,7 @@ export const BookCover: React.FC<BookCoverProps> = ({
                 <EditableText
                   value={coverTitle}
                   onSave={onUpdateTitle}
-                  placeholder="Our Memory Diary"
+                  placeholder="Our Memories 🤍"
                 />
               </h2>
 

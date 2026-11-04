@@ -42,7 +42,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({ onAddPhoto }) => {
     const randomRotation = (Math.random() - 0.5) * 6;
 
     const newPhoto: PhotoMemory = {
-      id: `photo-${Date.now()}`,
+      id: `user-photo-${Date.now()}`,
       dataUrl: previewUrl,
       caption: caption.trim() || 'A sweet moment together ✨',
       date: date.trim() || 'Special Memory',

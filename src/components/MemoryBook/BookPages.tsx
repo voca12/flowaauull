@@ -52,7 +52,7 @@ export const BookPages: React.FC<BookPagesProps> = ({
 
   // Photo handlers
   const handleAddPhoto = (photo: PhotoMemory) => {
-    const updatedPhotos = [photo, ...bookData.photos];
+    const updatedPhotos = [...bookData.photos, photo];
     onUpdateBookData({ ...bookData, photos: updatedPhotos });
   };
 
@@ -143,7 +143,7 @@ export const BookPages: React.FC<BookPagesProps> = ({
                   <EditableText
                     value={bookData.letterTitle}
                     onSave={(val) => onUpdateBookData({ ...bookData, letterTitle: val })}
-                    placeholder="Happy Birthday, My Love!"
+                    placeholder="Happy Birthday, Ma Luvv!!"
                   />
                 </h3>
 
@@ -203,13 +203,13 @@ export const BookPages: React.FC<BookPagesProps> = ({
                 <div className="mt-8 p-4 rounded-lg bg-[#E8DEFA] border border-[#A78BCE]/60 transform -rotate-1 relative">
                   <div className="absolute -top-2 left-6 w-12 h-4 washi-tape-lavender" />
                   <p className="font-handwriting text-lg text-[#11152E] leading-snug font-semibold">
-                    "Meeting you was destiny, becoming your friend was a choice, but falling in love with you was totally out of my control."
+                    "Barra sangat bersyukur bisa bertemu Ka Auull, terima kasih yaa sudaa bertahan sampai saat ini."
                   </p>
                 </div>
               </div>
 
               <div className="mt-6 text-center text-xs font-mono text-[#59418C] font-medium">
-                Turn page to view our photo gallery →
+                Turn page to view our photo gallery.
               </div>
             </div>
           </>
@@ -275,14 +275,14 @@ export const BookPages: React.FC<BookPagesProps> = ({
                 {bookData.photos.length <= 2 && (
                   <div className="text-center py-10 border-2 border-dashed border-[#A78BCE] rounded-xl my-4">
                     <p className="font-handwriting text-xl text-[#59418C] font-semibold">
-                      Add more memories by clicking the button on page 3! ✨
+                      Ka Auull bisaa tambah memori disinii
                     </p>
                   </div>
                 )}
               </div>
 
               <div className="text-center font-mono text-xs text-[#59418C] mt-4 font-medium">
-                Memories frozen in time 💜
+                Thanks to time, it frozed our memories.
               </div>
             </div>
           </>
@@ -387,7 +387,7 @@ export const BookPages: React.FC<BookPagesProps> = ({
 
               <div className="mt-4 pt-3 border-t border-[#D8C8F0] text-center">
                 <span className="text-xs font-mono text-[#59418C] font-medium">
-                  A lifetime of dreams waiting for us ✈️
+                  A lifetime of dreams waiting for us.
                 </span>
               </div>
             </div>
@@ -421,7 +421,7 @@ export const BookPages: React.FC<BookPagesProps> = ({
 
                 <div className="my-6 p-4 rounded-xl bg-[#E8DEFA] border border-[#A78BCE]/60 text-center">
                   <p className="font-serif italic text-sm text-[#30234F] font-medium">
-                    "I wanted to craft a bouquet as timeless as my love for you — one born from pure light, rhythm, and devotion."
+                    "I wanted to craft a bouquet as timeless as my love for you, one born from pure light, rhythm, and devotion."
                   </p>
                 </div>
               </div>
@@ -537,3 +537,4 @@ export const BookPages: React.FC<BookPagesProps> = ({
     </div>
   );
 };
+

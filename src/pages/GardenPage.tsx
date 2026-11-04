@@ -51,15 +51,15 @@ export const GardenPage: React.FC<GardenPageProps> = ({
       <div className="flex-1 flex flex-col h-full relative overflow-hidden">
         {/* Top Header: Centered above bouquet */}
         <header className="relative z-20 pt-8 sm:pt-10 px-4 text-center pointer-events-none shrink-0">
-          <h1
+          <h2
             className="text-2xl sm:text-4xl md:text-5xl tracking-normal text-[#f3eed9] leading-tight font-serif drop-shadow-[0_2px_15px_rgba(243,238,217,0.2)]"
             style={{
               fontFamily: "'Playfair Display', 'Cinzel', Georgia, serif"
             }}
           >
-            Who needs flowers<br />
-            when <span className="italic font-normal">you</span> can code them?
-          </h1>
+            Happy Birthday<br />
+            <span className="italic font-normal">Ka Auull</span> 🤍
+          </h2>
         </header>
 
         {/* Main Canvas Area: 100% unobstructed, no bottom overlays */}

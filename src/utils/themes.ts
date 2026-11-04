@@ -21,7 +21,7 @@ export const FLOWER_THEMES: Record<ThemeId, FlowerTheme> = {
   },
   pink: {
     id: 'pink',
-    name: 'Romantic Pink',
+    name: 'Your Fav Color',
     description: 'Tender romance — blush, peony, deep rose, and ballerina pink',
     previewColor: '#ff70a6',
     palette: {
@@ -39,7 +39,7 @@ export const FLOWER_THEMES: Record<ThemeId, FlowerTheme> = {
   },
   sunset: {
     id: 'sunset',
-    name: 'Sunset Radiance',
+    name: 'My Sunshine is You',
     description: 'Golden hour twilight — burning orange, fiery red, and honey gold',
     previewColor: '#f77f00',
     palette: {
@@ -57,7 +57,7 @@ export const FLOWER_THEMES: Record<ThemeId, FlowerTheme> = {
   },
   lavender: {
     id: 'lavender',
-    name: 'Lavender Whisper',
+    name: 'Me and You',
     description: 'Nocturne serenity — regal violet, enchanted lilac, and periwinkle mist',
     previewColor: '#9d4edd',
     palette: {
