@@ -66,7 +66,7 @@ export const EditableText: React.FC<EditableTextProps> = ({
             onChange={(e) => setCurrentText(e.target.value)}
             onBlur={handleFinishEdit}
             onKeyDown={handleKeyDown}
-            className={`w-full p-2 bg-amber-50 border-2 border-dashed border-amber-600 rounded text-neutral-800 outline-none resize-y min-h-[120px] ${className}`}
+            className={`w-full p-2 bg-[#F8F6FF] border-2 border-dashed border-[#59418C] rounded text-[#11152E] outline-none resize-y min-h-[120px] ${className}`}
             rows={5}
           />
         ) : (
@@ -77,12 +77,12 @@ export const EditableText: React.FC<EditableTextProps> = ({
             onChange={(e) => setCurrentText(e.target.value)}
             onBlur={handleFinishEdit}
             onKeyDown={handleKeyDown}
-            className={`w-full px-2 py-1 bg-amber-50 border-b-2 border-dashed border-amber-600 text-neutral-800 outline-none ${className}`}
+            className={`w-full px-2 py-1 bg-[#F8F6FF] border-b-2 border-dashed border-[#59418C] text-[#11152E] outline-none ${className}`}
           />
         )}
         <button
           onClick={handleFinishEdit}
-          className="absolute right-1 bottom-1 p-1 bg-amber-600 text-white rounded text-xs hover:bg-amber-700"
+          className="absolute right-1 bottom-1 p-1 bg-[#59418C] text-[#F8F6FF] rounded text-xs hover:bg-[#30234F]"
           title="Save text"
         >
           <Check size={12} />
@@ -94,13 +94,13 @@ export const EditableText: React.FC<EditableTextProps> = ({
   return (
     <Component
       onClick={handleStartEdit}
-      className={`group relative cursor-pointer hover:bg-amber-100/60 rounded px-1 -mx-1 transition-colors ${className}`}
+      className={`group relative cursor-pointer hover:bg-[#D8C8F0]/50 rounded px-1 -mx-1 transition-colors ${className}`}
       title="Click to personalize text"
     >
       <span>{value || placeholder}</span>
       <Pencil
         size={11}
-        className="inline-block ml-1.5 opacity-0 group-hover:opacity-70 text-amber-700 transition-opacity align-baseline"
+        className="inline-block ml-1.5 opacity-0 group-hover:opacity-75 text-[#59418C] transition-opacity align-baseline"
       />
     </Component>
   );

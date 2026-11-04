@@ -5,11 +5,11 @@ const DB_VERSION = 1;
 const STORE_NAME = 'book_state';
 const STATE_KEY = 'current_memory_book';
 
-// Default starter photos with cute romantic pixel-styled SVG illustrations
+// Default starter photos with cute romantic pixel-styled SVG illustrations (Purple-Navy Palette)
 const DEFAULT_PHOTOS: PhotoMemory[] = [
   {
     id: 'photo-1',
-    dataUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23ffd1dc"/><circle cx="200" cy="180" r="90" fill="%23fff"/><path d="M150 170 Q165 150 180 170 Q195 190 200 205 Q205 190 220 170 Q235 150 250 170 Q260 190 200 240 Q140 190 150 170 Z" fill="%23ff4d6d"/><text x="200" y="320" font-family="sans-serif" font-size="20" font-weight="bold" fill="%237a3b4d" text-anchor="middle">The day we first met ✨</text></svg>',
+    dataUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23D8C8F0"/><circle cx="200" cy="180" r="90" fill="%23F8F6FF"/><path d="M150 170 Q165 150 180 170 Q195 190 200 205 Q205 190 220 170 Q235 150 250 170 Q260 190 200 240 Q140 190 150 170 Z" fill="%2359418C"/><text x="200" y="320" font-family="sans-serif" font-size="20" font-weight="bold" fill="%2311152E" text-anchor="middle">The day we first met ✨</text></svg>',
     caption: 'The unforgettable day everything changed ✨',
     date: 'Day One',
     rotation: -2,
@@ -17,7 +17,7 @@ const DEFAULT_PHOTOS: PhotoMemory[] = [
   },
   {
     id: 'photo-2',
-    dataUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23ffe5b4"/><rect x="50" y="60" width="300" height="250" rx="15" fill="%23fff"/><circle cx="160" cy="170" r="45" fill="%23ff85a1"/><circle cx="240" cy="170" r="45" fill="%2370d6ff"/><path d="M140 250 Q200 280 260 250" stroke="%23ff70a6" stroke-width="8" fill="none" stroke-linecap="round"/><text x="200" y="340" font-family="sans-serif" font-size="18" font-weight="bold" fill="%23936639" text-anchor="middle">Late night talks & laughter ☕</text></svg>',
+    dataUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23F0EAF8"/><rect x="50" y="60" width="300" height="250" rx="15" fill="%23191D3A"/><circle cx="160" cy="170" r="45" fill="%23A78BCE"/><circle cx="240" cy="170" r="45" fill="%2359418C"/><path d="M140 250 Q200 280 260 250" stroke="%23D8C8F0" stroke-width="8" fill="none" stroke-linecap="round"/><text x="200" y="345" font-family="sans-serif" font-size="18" font-weight="bold" fill="%2311152E" text-anchor="middle">Late night talks & laughter ☕</text></svg>',
     caption: 'Late night giggles and endless conversations ☕',
     date: 'A Cozy Evening',
     rotation: 3,
@@ -25,15 +25,15 @@ const DEFAULT_PHOTOS: PhotoMemory[] = [
   },
   {
     id: 'photo-3',
-    dataUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23d8e2dc"/><path d="M0 320 Q100 280 200 310 T400 290 L400 400 L0 400 Z" fill="%23a3b18a"/><circle cx="200" cy="130" r="50" fill="%23f4a261"/><path d="M180 180 L200 270 L220 180 Z" fill="%23264653"/><text x="200" y="350" font-family="sans-serif" font-size="18" font-weight="bold" fill="%23344e41" text-anchor="middle">Our favorite sunset walk 🌅</text></svg>',
-    caption: 'Watching the golden sunset together 🌅',
-    date: 'Summer Days',
+    dataUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23191D3A"/><path d="M0 320 Q100 280 200 310 T400 290 L400 400 L0 400 Z" fill="%2330234F"/><circle cx="200" cy="130" r="50" fill="%23D8C8F0"/><path d="M180 180 L200 270 L220 180 Z" fill="%2359418C"/><text x="200" y="350" font-family="sans-serif" font-size="18" font-weight="bold" fill="%23F8F6FF" text-anchor="middle">Our favorite twilight walk 🌌</text></svg>',
+    caption: 'Watching the twilight sky together 🌌',
+    date: 'Twilight Stroll',
     rotation: -1.5,
     sticker: 'flower'
   },
   {
     id: 'photo-4',
-    dataUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23ede0d4"/><circle cx="200" cy="190" r="85" fill="%23e6ccb2"/><text x="200" y="195" font-size="65" text-anchor="middle" dominant-baseline="middle">🎂</text><text x="200" y="330" font-family="sans-serif" font-size="18" font-weight="bold" fill="%237f5539" text-anchor="middle">Another year sweeter 💖</text></svg>',
+    dataUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23F0EAF8"/><circle cx="200" cy="190" r="85" fill="%23D8C8F0"/><text x="200" y="195" font-size="65" text-anchor="middle" dominant-baseline="middle">🎂</text><text x="200" y="330" font-family="sans-serif" font-size="18" font-weight="bold" fill="%2311152E" text-anchor="middle">Another year sweeter 💜</text></svg>',
     caption: 'Celebrating the sweetest person in my world 🎂',
     date: 'Today & Always',
     rotation: 2.5,
@@ -172,3 +172,4 @@ export function compressImage(file: File, maxDim = 1200, quality = 0.85): Promis
     reader.readAsDataURL(file);
   });
 }
+

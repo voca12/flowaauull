@@ -21,6 +21,7 @@ export const FlowerCanvas: React.FC<FlowerCanvasProps> = ({
   onReplayRef
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const rendererRef = useRef<ProceduralBouquetRenderer | null>(null);
   const animFrameId = useRef<number | null>(null);
 
@@ -56,27 +57,37 @@ export const FlowerCanvas: React.FC<FlowerCanvasProps> = ({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
     let isMounted = true;
 
-    // Handle high DPI crisp canvas
-    const handleResize = () => {
-      const rect = canvas.getBoundingClientRect();
+    const updateDimensions = () => {
+      const rect = container.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      ctx.scale(dpr, dpr);
+      const w = Math.floor(rect.width);
+      const h = Math.floor(rect.height);
+
+      if (w > 0 && h > 0) {
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        ctx.resetTransform();
+        ctx.scale(dpr, dpr);
+      }
     };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
+    updateDimensions();
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateDimensions();
+    });
+    resizeObserver.observe(container);
 
     const TOTAL_STEM_DURATION = 3.5; // Stems grow in 3.5 seconds
-    const TOTAL_BLOOM_DURATION = 5.0; // Flowers bloom from t=2.8 to t=7.8
+    const TOTAL_BLOOM_DURATION = 5.0; // Flowers bloom from t=2.2 to t=7.2
 
     const renderLoop = (timestamp: number) => {
       if (!isMounted) return;
@@ -91,7 +102,6 @@ export const FlowerCanvas: React.FC<FlowerCanvasProps> = ({
 
       const elapsed = growthTimeRef.current;
 
-      // Calculate progress values:
       // Stem growth from 0.0 to 1.0 between t=0 and t=3.5
       const stemProgress = Math.min(1.0, elapsed / TOTAL_STEM_DURATION);
 
@@ -112,14 +122,15 @@ export const FlowerCanvas: React.FC<FlowerCanvasProps> = ({
       const logicalWidth = canvas.width / dpr;
       const logicalHeight = canvas.height / dpr;
 
-      // Call procedural bouquet renderer
-      rendererRef.current?.render(ctx, logicalWidth, logicalHeight, {
-        stemProgress,
-        bloomProgress,
-        theme,
-        renderMode: 'scanline',
-        time: timestamp
-      });
+      if (logicalWidth > 0 && logicalHeight > 0) {
+        rendererRef.current?.render(ctx, logicalWidth, logicalHeight, {
+          stemProgress,
+          bloomProgress,
+          theme,
+          renderMode: 'scanline',
+          time: timestamp
+        });
+      }
 
       animFrameId.current = requestAnimationFrame(renderLoop);
     };
@@ -129,7 +140,7 @@ export const FlowerCanvas: React.FC<FlowerCanvasProps> = ({
     return () => {
       isMounted = false;
       if (animFrameId.current) cancelAnimationFrame(animFrameId.current);
-      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
     };
   }, [isPlaying, speedMultiplier, theme, hasCompleted, onAnimationComplete]);
 
@@ -139,11 +150,14 @@ export const FlowerCanvas: React.FC<FlowerCanvasProps> = ({
   };
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black select-none">
+    <div
+      ref={containerRef}
+      className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black select-none"
+    >
       <canvas
         ref={canvasRef}
         onClick={handleCanvasClick}
-        className="w-full h-full block cursor-pointer transition-opacity duration-500"
+        className="w-full h-full block cursor-pointer"
         style={{
           touchAction: 'none'
         }}

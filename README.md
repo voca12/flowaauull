@@ -79,3 +79,4 @@ npm run dev
    - Under **Build and deployment** > **Source**, select **GitHub Actions**.
 3. Push to `main` branch or trigger the workflow under **Actions** > **Deploy to GitHub Pages**.
 4. Your website will be live in seconds at `https://<username>.github.io/<repo-name>/`!
+

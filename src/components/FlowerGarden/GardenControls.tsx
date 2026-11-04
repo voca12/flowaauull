@@ -95,3 +95,4 @@ export const GardenControls: React.FC<GardenControlsProps> = ({
     </div>
   );
 };
+
